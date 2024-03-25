@@ -1,0 +1,3 @@
+https://www.cyberciti.biz/faq/grep-regular-expressions/
+
+grep -E -i -w 'vivek|raj' /etc/passwd

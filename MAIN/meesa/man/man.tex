@@ -1,0 +1,260 @@
+\documentclass[twocolumn]{article}
+\usepackage[top=.5in, bottom=.5in, left=.75in, right=.75in]{geometry}
+\usepackage{amsthm,amssymb,amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\title{The mkPDF: a review on some writing tools}
+\author{
+Amir vSpades \\ \url{vegaspades@gmail.com}
+\and
+M.S.Fadakee \\ \url{m.fadaki@in.iut.ac.ir}
+}
+\date{}
+\begin{document}
+\maketitle
+\begin{abstract}
+In this article, we compare HTML, LibreOffice Writer and LaTeX in order to find
+out which one could be the most promising tool in terms of user-friendly,
+typeset mathematics handling, package management and media support. On top of
+that, we introduce mkPDF, a tool for preparing LaTeX documents.
+\end{abstract}
+\section{Introduction}
+\LaTeX is a high-quality typesetting system which includes features designed for
+the production of technical and scientific documentation[1]. \LaTeX, as a
+markup language, similar to \textit{HTML}, uses commands (as tags in HTML) to
+enhance plain text types to more advanced level documents, usually in static PDF
+formats. Figure 1 illustrates an example of such conversion.
+\newline
+Figure 1: The writer uses plain text commands as opposed to the WYSIWYG word
+processors.
+\newline
+In this study, we compare the following typesetting systems and softwares:
+\begin{enumerate}
+\item \textit{HTML}: The Hypertext Markup Language (HTML) is the standard markup
+language for documents designed to be displayed in a web browser.
+\item \textit{LibreOffice Writer}: A free and open-source word processor
+component of the LibreOffice software package, similar to Microsoft Word[2].
+\item \textit{TeX/LaTeX}: A high-quality typesetting system; that includes
+features designed for the production of technical and scientific
+documentation[3].
+\end{enumerate}
+to find out which one could be the most promising tool in terms of:
+\begin{enumerate}
+\item \textit{User Friendly}: Readily enough for a novice to get used to the
+environment for producing their own documents.
+\item \textit{Typeset Mathematics}: Convenient enough to produce beautifully
+complex typeset mathematics expressions.
+\item \textit{Customizable}: Coherent package system that makes it relatively
+easy for users to write extension packages for providing additional features.
+\item \textit{Portability and Media Support}: Enables users for converting
+documents to other outputs (mostly static PDF), allowing them to share and
+publish them. Also supporting numerous different types of media within a
+document.
+\end{enumerate}
+In addition, we introduced a humble software named as \textbf{mkPDF}, which uses
+\textit{TeX-Live} compiler to:
+\begin{enumerate}
+\item Prepares documents using the TeX/LaTeX
+\item Converts a <.tex> document to PDF
+\item Formats lists of references using the BibTeX tool
+\item Manually installs CTAN packages
+\item Provides a sample <.tex> file that could be helpful for providing future
+documents.
+\end{enumerate}
+The mkPDF is a CLI (Command Line Interface) tiny app that can be used by other
+programs as in-line commands.
+\newline
+Figure 2: Enlisting the arguments and capabilities of mkPDF.
+\newline
+In section 2, we have a comparison among them three tools in terms of the
+mentioned aspects. The scores would be A, B or C for Good, OK and Poor
+respectively. The outcome is integrated and diagrammed via a bar chart.
+\newline
+In section 3, we look at some features and capabilities of the mkPDF app.
+\section{Variables Evaluation}
+For a quick comparison of them three tools, we gave them scores from A to C. The
+result has been integrated and diagrammed via a bar chart.
+\newline
+Figure 3: a comparison on three tools, based on four variables.
+\newline
+The rest of this section provides details for this quick research.
+\subsection{User Friendly}
+\subsubsection{HTML (Score: A)}
+One doesn't have to be a professional web-designer to publish a document in an
+HTML format. The HTML <tags> are used to reform a plain text.
+\newline
+\textbf{Example 1.} Using the <b> and <\\b> tags to bold a phrase:
+\newline
+... blah blah blah ...
+$\rightarrow$
+... blah <b>blah<\\b> blah ...
+\newline
+The output would be like:
+\newline
+... blah \textbf{blah} blah ...
+\newline
+Nevertheless there are plenty of softwares to Edit HTML documents, namely:
+\begin{enumerate}
+\item Adobe Dreamweaver
+\item Eclipse
+\item Atom
+\item ...
+\end{enumerate}
+Those kinds of IDEs, make tasks as WYSIWYG ( What You See Is What You Get)
+thanks to them Shortcut Keys and Macros.
+\subsubsection{LibreOffice Writer (Score: A)}
+The LibreOffice Writer is another example for a WYSIWYG word processor.
+\newline
+\textbf{Example 2.} With LibreOffice Writer we could bold a phrase by
+highlighting that phrase and pressing <Ctrl+B>:
+\newline
+... blah blah blah ...
+$\rightarrow$
+... blah blah blah ...
+\newline
+The output would be like:
+\newline
+... blah \textbf{blah} blah ...
+\subsubsection{\LaTeX (Score: A)}
+On the other hand, when writing with LaTeX, the writer uses plain text as
+opposed to the formatted text found in WYSIWYG word processors. The writer uses
+commands, as tags in HTML, to reformat the raw text.
+\newline
+\textbf{Example:} We may use
+\begin{verbatim}
+\textbf{...}
+\end{verbatim}
+command to make a phrase in bold typeface:
+... blah blah blah ...
+$\rightarrow$
+... blah
+\begin{verbatim}
+\textbf{blah}
+\end{verbatim}
+blah ...
+\newline
+The output would be like:
+\newline
+... blah \textbf{blah} blah ...
+\newline
+Despite an initially steep learning curve, a novice can very quickly get to the
+point where they are comfortable producing their own documents and can look up
+answers to many of their questions online.
+\newline
+Most \LaTeX programs for editing <.tex> document files have a very user-friendly
+interface:
+\begin{enumerate}
+\item \textit{Overleaf}: An online \LaTeX editor
+\item \textit{TeXstudio}: An integrated writing environment for creating LaTeX
+documents.
+\item ...
+\end{enumerate}
+\subsection{Typeset Mathematics Handling}
+\subsubsection{LibreOffice Writer (Score: A)}
+The \textit{LibreOffice Writer} has a feature to quickly generate math
+expression.
+\textbf{Example:} All we have to do is highlighting the expression, and clicking
+on the icon button:. LibreOffice Writer tries to recognize and interprete
+commands inside that expression and if possible convert that syntax to a
+good-looking math symbols.
+\newline
+The output woud be like:
+\newline
+\subsubsection{HTML (Score: B)}
+HTML doesn't seem to be designed specefically for diplaying math expressions.
+Anyway we could insert math symbols among the text using their equavelant hex
+codes.
+\newline
+\textbf{Example: Pigeonhole principle.} Here there are n = 10 pigeons in m = 9
+holes. Since 10 is greater than 9, the pigeonhole principle says that at least
+one hole has more than one pigeon:
+\newline
+$⌈n/m⌉$
+\newline
+The hex codes to indicate such ceiling functions $⌈⌉$ are as follows:
+\newline
+\begin{verbatim}
+&#x2308; n/m &#x2309;$
+\end{verbatim}
+Also we may get the same result using named HTML Entity:
+\newline
+\begin{verbatim}
+&lceil; n/m &rceil;
+\end{verbatim}
+\subsubsection{LaTeX (Score: A)}
+After all, LaTeX is designed by mathematicians for producing beautifully typeset
+mathematics. LaTeX is famouse for rendering equations and mathematical symbols.
+\textbf{Example: Pigeonhole Principle.} Here there are n = 10 pigeons in m = 9
+holes. Since 10 is greater than 9, the pigeonhole principle says that at least
+one hole has more than one pigeon:
+$\lceil n/m \rceil$
+\newline
+The commands to indicate such ceiling functions $\lceil \ \rceil$ are:
+\newline
+\begin{verbatim}
+$\lceil n/m \rceil$
+\end{verbatim}
+\subsection{Customizable}
+\subsubsection{LibreOffice (Score: B)}
+LibreOffice Extensions are tools that can be added or removed independently from
+your installation of the main program.
+\footnote{They are availabe at: https://extensions.libreoffice.org/}
+They are feasible to download and install, while most of them seems to be fancy
+and not necessary.
+\subsubsection{HTML (Score: A)}
+With the combiniation of (HTML, CSS, JS), one could build powerful open-source
+extensions for a web browser to boost up its ability and performance. For
+example to elicit information or ban annoying advertisments.
+\footnote{For the Mozilla Firefox browser a variety of themes and extensions
+could be found at:
+https://support.mozilla.org/en-US/kb/find-and-install-add-ons-add-features-to-firefox}
+\subsubsection{LaTeX (Score: C)}
+While there are billions packages are available to reform raw text into a
+beatiful document, there is one major problem known as \textbf{Dependency Hell}.
+It describes as :
+\newline
+``Dependency hell is a colloquial term for the frustration of some software
+users who have installed software packages which have dependencies on specific
+versions of other software packages.''
+\newline
+\textbf{Example:} Installing the xe-persian package for \LaTeX deponds on the
+following chained packages:
+\newline
+$> > > > ...$
+\newline
+On the contrary, the \textit{MiKTeX} can be configured in such a way that
+missing packages are automatically installed.
+\footnote{https://docs.miktex.org/manual/texfeatures.html}
+\subsection{Portability and Media Support}
+\subsubsection{HTML (Score: A)}
+The combinition of (HTML, CSS, JS) does one exceptional job at producing
+interactive webpages where there is no limit in displaying any formats of media.
+It's so easy to export the outcome document in a variaty of formats, such as
+PDF, HTML, etc.
+\newline
+\subsubsection{LibreOffice Writer (Score: B)}
+Also LibreOffice Writer support embedding variaety of media formats within a
+documnet, including: images and even videos. However inserting GIF (animated
+pictures) might be challenging.
+\subsection{Conclusion}
+From this study, we established that while \LaTeX is the best choice for
+preparing static documents (especially if they contain mathematics symbols), the
+HTML combining with CSS and JS are well suited for making interactive pages.
+\newline
+In addition we evaluated a CMD app, named as mkPDF, in order to build static
+papers in PDF format out of <.tex> documents.
+\newline
+References
+\newline
+\begin{verbatim}
+[1] https://www.latex-project.org
+\newline
+[2] https://en.wikipedia.org/wiki/LibreOffice_Writer
+\newline
+[3] https://en.wikipedia.org/wiki/LaTeX
+\newline
+http://www.fileformat.info/info/unicode/char/2309/index.htm
+\newline
+http://www.fileformat.info/info/unicode/char/2308/index.htm
+\end{verbatim}
+\end{document}

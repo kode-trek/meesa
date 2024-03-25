@@ -1,0 +1,98 @@
+#!/bin/bash
+if [[ $USER == "root" ]]
+then
+    echo "no room for root!"
+    exit
+fi
+if [[ ! -f ~/.mkpdf.conf ]]
+then
+	echo -n "mkpdf is not configured properly. setup [y|n]: "
+	read ans
+	if [[ $ans == 'y' ]]
+	then
+		sudo apt-get autoremove --purge xed* -y >/dev/null
+		echo "[1] upgrading editor..."
+		sudo apt-get autoremove --purge xreader* -y >/dev/null
+		echo "[2] upgrading reader..."
+		echo "[3] configuring tlmgr..."
+		sudo mktexlsr >/dev/null
+		sudo tlmgr init-usertree >/dev/null
+		sudo tlmgr option repository "ftp://tug.org/historic/systems/texlive/2015/tlnet-final" >/dev/null
+		echo "[WARNING] tlmgr repo is outdated: 2015"
+		# tlmgr install zapfding
+		# tlmgr install collection-latexrecommended
+		# tlmgr install collection-fontsrecommended
+		echo "[ACTIVATED] <gedit>" >> ~/.mkpdf.conf
+		echo "[ACTIVATED] <evince>" >> ~/.mkpdf.conf
+		echo "[WARNED] <pkgTeX>" >> ~/.mkpdf.conf
+		echo "[ACTIVATED] <pdfTeX>" >> ~/.mkpdf.conf
+		echo "[ACTIVATED] <pdfXeTeX>" >> ~/.mkpdf.conf
+		echo "[ACTIVATED] <pdfFont>" >> ~/.mkpdf.conf
+		echo "[ACTIVATED] <sampleTeX>" >> ~/.mkpdf.conf
+		echo "done."
+		echo ""
+	fi
+fi
+if [[ "$1" == "" ]]
+then
+    echo "[FAILED] no argument(s) supplied."
+    echo "mkpdf --help"
+    exit
+fi
+if [[ "$1" == "--help" ]]
+then
+	echo "produces a PDF document using the LaTeX/XeTeX compilers."
+	echo "-------------------------------------------------------"
+	echo ""
+	echo "[PATTERN] mkpdf --help"
+	echo "displays this help."
+	echo ""
+	echo "[PATTERN] mkpdf --la <.tex>"
+	echo "builds a PDF from a LAtin <.tex> document."
+	echo ""
+	echo "[PATTERN] mkpdf --fa <.tex>"
+	echo "builds a PDF from a FArsi <.tex> document."
+	echo ""
+#	echo "--pkg [.zip package] \t extracts <.sty> files from a <.zip> archive."
+	echo "[PATTERN] mkpdf --pkg <CTAN-package>"
+	echo "installs a CTAN package."
+	echo ""
+	echo "[PATTERN] mkpdf --font <.ttf | .zip | ...>"
+	echo "installs font(s)."
+	echo ""
+	echo "[PATTERN] mkpdf --sample"
+	echo "provides a collection of sample <.tex> documents."
+elif [[ "$1" == "--la" ]]
+then
+	if [[ "$3" != "--skip-pkg-inst" ]]
+	then
+			/usr/bin/mkPDF/prep-pkg "$2"
+	fi
+	/usr/bin/mkPDF/pdfTeX "$2"
+elif [ "$1" = "--fa" ]
+then
+	if [[ "$3" != "--skip-pkg-inst" ]]
+	then
+			/usr/bin/mkPDF/prep-pkg "$2"
+	fi
+	/usr/bin/mkPDF/pdfXeTeX "$2"
+elif [ "$1" = "--pkg" ]
+then
+	/usr/bin/mkPDF/pkgTeX "$2"
+elif [ "$1" = "--font" ]
+then
+	/usr/bin/mkPDF/pdfFont "$2"
+elif [ "$1" = "--sample" ]
+then
+	if [ ! -d ~/Documents/sampleTeX ]
+	then
+		mkdir ~/Documents/sampleTeX
+		cp -rf /usr/lib/mkPDF/sampleTeX/ ~/Documents/
+		echo 'available at: <~/Documents/sampleTeX>'
+	else
+		echo '[FAILED]: <~/Documents/sampleTeX/> already exists.'
+	fi
+else
+	echo "[FAILED] unknown argument(s) supplied."
+	echo "mkpdf --help"
+fi

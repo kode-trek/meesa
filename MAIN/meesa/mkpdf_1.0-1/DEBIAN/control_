@@ -1,0 +1,11 @@
+Package: mkpdf
+Version: 1.0-1
+Section: base
+Priority: optional
+Architecture: i386
+Depends: texlive-latex-base, texlive-lang-arabic
+Maintainer: github.com/ID
+Description: mkPDF prepares documents using the TeX/LaTeX
+ - Converts a <.tex> document to PDF
+ - Formats lists of references using the BibTeX tool
+ - Manually installs CTAN packages

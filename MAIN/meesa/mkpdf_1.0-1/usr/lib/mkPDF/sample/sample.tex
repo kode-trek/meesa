@@ -1,0 +1,96 @@
+\documentclass[twocolumn]{article}
+
+\usepackage[top=.5in, bottom=.5in, left=.75in, right=.75in]{geometry}
+\usepackage{amsthm,amssymb,amsmath}
+\usepackage{graphicx}
+%\usepackage{url}
+\usepackage{hyperref}
+
+\title{my-title}
+
+\author{
+vSpades \\ \url{vegaspades@gmail.com}
+\and
+foo bar \\ \url{foo@bar.zone}
+}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This article demonstrate a sample paper that established via \LaTeX.
+\end{abstract}
+
+\section{Introduction}\indent
+
+\textbf{bolded phrase}, \textit{italic phrase}, and cited\cite{WEBSITE:1}. \\
+
+Figure \ref{fig:fig1} illustrates a different formats, including:
+\begin{enumerate}
+\item PDF
+\item image
+	\begin{enumerate}
+	\item PNG
+	\item JPG	% one-line comments
+	\end{enumerate}
+\end{enumerate}
+
+for extra gap (space) like: \ or For escape characters, like: \%
+
+\begin{figure*}
+	\includegraphics[width=\linewidth]{asset/fig1.pdf}
+	\caption{vaption for this figure.}
+	\label{fig:fig1}
+\end{figure*}
+
+To display as it is, mostly for math \url{http://www.hiew.ru/} symbols.
+
+or
+$sin(x)$
+
+for multiple lines:\newline
+
+\begin{verbatim}
+Ctrl + Alt + T
+ls
+sin(x)
+\end{verbatim}
+
+that'll do!.
+
+this to quote:
+``\emph{To test a variety of operating systems and also different softwares that
+are not able to be run on the host.}''
+
+do some matrix:\newline
+
+\[
+\begin{pmatrix}
+	x_{11} & x_{12} & x_{13} & \dots & x_{1n} \\
+	x_{21} & x_{22} & x_{23} & \dots & x_{2n} \\
+	\hdotsfor{5} \\
+	x_{d1} & x_{d2} & x_{d3} & \dots & x_{dn}
+\end{pmatrix}
+=
+\begin{bmatrix}
+	x_{11} & x_{12} & x_{13} & \dots & x_{1n} \\
+	x_{21} & x_{22} & x_{23} & \dots & x_{2n} \\
+	\vdots & \vdots & \vdots & \ddots & \vdots \\
+	x_{d1} & x_{d2} & x_{d3} & \dots & x_{dn}
+\end{bmatrix}
+\]
+
+\section{Conclusion}
+It has been established that, blah blah\footnote{Some footnotes goes here}.
+
+\bibliography{src}
+\bibliographystyle{ieeetr}
+
+\end{document}
+
+%whatever, literally whatever comes after \end{document}, won't get compiled.
+%هر چی باشه
+%The END!
+
+%https://www.latex-tutorial.com/

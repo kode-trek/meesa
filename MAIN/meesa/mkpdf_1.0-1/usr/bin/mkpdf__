@@ -1,0 +1,35 @@
+#!/bin/bash
+if [ "$1" = "--help" ]
+then
+	echo 'Usage: mkpdf [OPTION]... [FILE]...'
+	echo ''
+	echo -e '--help \t\t\t displays this help.'
+	echo -e '--la [.tex document] \t builds PDF from a Latin <.tex> document.'
+	echo -e '--xe [.tex document] \t builds PDF from a Persian <.tex> document.'
+#	echo -e '--pkg [.zip package] \t extracts <.sty> files from a <.zip> archive.'
+	echo -e '--pkg [CTAN package] \t installs CTAN package.'
+	echo -e '--font [.ttf|.zip] \t installs Font.'
+	echo -e '--sample \t\t provides a <sample.tex> document.'
+elif [ "$1" = "--la" ]
+then
+	/usr/bin/mkPDF/pdfTeX "$2"
+elif [ "$1" = "--xe" ]
+then
+	/usr/bin/mkPDF/pdfXeTeX "$2"
+elif [ "$1" = "--pkg" ]
+then
+	/usr/bin/mkPDF/pkgTeX "$2"
+elif [ "$1" = "--font" ]
+then
+	/usr/bin/mkPDF/pdfFont "$2"
+elif [ "$1" = "--sample" ]
+then
+	if [ ! -d ~/Documents/sampleTeX ]
+	then
+		mkdir ~/Documents/sampleTeX
+		cp -rf /usr/lib/mkPDF/sample/ ~/Documents/sampleTeX
+		echo 'CHECK: <~/Documents/sampleTeX>'
+	else
+		echo '[FAILED]: <~/Documents/sampleTeX/> already exists.'
+	fi
+fi

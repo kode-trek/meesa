@@ -1,0 +1,133 @@
+#! /bin/bash
+
+RED='\033[1;35m'
+GREEN='\033[1;36m'
+BLUE='\033[1;34m'
+YELLOW='\033[1;33m'
+NC='\033[0m' #No-Color
+
+printf "${GREEN}-- VOCO --${NC}""\n"
+
+if [[ "$1" == "--roll-back" ]]
+then
+ trap "exit" INT
+
+ sudo rm -rf /usr/bin/voco-bin/
+ sudo rm -rf /usr/lib/voco/
+ sudo rm -rf /usr/bin/voco
+
+ if [[ -e ~/voco ]]
+ then
+  printf "${BLUE}[OUT]${NC} ~/voco""\n"
+  printf "${YELLOW}[NOTICE]${NC} file(s) found.""\n"
+  printf "${BLUE}[OK]${NC} successfully un-installed.""\n"
+ fi
+
+ printf "${BLUE}[OK]${NC} successfully un-installed.""\n"
+ read -n1 -r -p "press ANY-KEY to EXIT..." key
+ exit
+fi
+
+lab51cc 1>/dev/null 2>/dev/null
+if [[ "$?" > 0 ]]
+then
+ printf "${YELLOW}[REQUIREMENT]${NC} <lab51cc>""\n"
+ printf "${YELLOW}[DEVELOPMENT]${NC} <github.com/kode-trek/lab51>""\n"
+ read -n1 -r -p "press ANY-KEY to EXIT..." key
+ exit
+fi
+
+flg=0
+if [[ -e /usr/bin/voco ]]
+then
+ printf "${BLUE}[OUT]${NC} /usr/bin/voco""\n"
+ flg=1
+fi
+if [[ -e /usr/bin/voco-bin ]]
+then
+ printf "${BLUE}[OUT]${NC} /usr/bin/voco-bin/""\n"
+ flg=1
+fi
+if [[ -e /usr/lib/voco ]]
+then
+ printf "${BLUE}[OUT]${NC} /usr/lib/voco/""\n"
+ flg=1
+fi
+if [[ -e ~/voco/ ]]
+then
+ printf "${BLUE}[OUT]${NC} ~/voco/""\n"
+ flg=1
+fi
+
+if [[ $flg == 1 ]]
+then
+ printf "${YELLOW}[WARNING]${NC} file(s) found. "
+ read -p "RE-INSTALL? (Y/N): " confirm && [[ $confirm == [yY] ]] || exit 1
+fi
+
+trap "exit" INT
+
+cd lib
+
+sudo rm -rf /usr/bin/voco-bin/
+sudo rm -rf /usr/lib/voco/
+
+sudo mkdir /usr/bin/voco-bin/
+sudo mkdir /usr/lib/voco/
+chmod 755 voco
+sudo cp voco /usr/bin/
+echo ""
+
+lab51cc help.cc
+sudo mv help_* /usr/bin/voco-bin/help
+echo ""
+
+lab51cc intro.cc
+sudo mv intro_* /usr/bin/voco-bin/intro
+echo ""
+
+lab51cc menu.cc
+sudo mv menu_* /usr/bin/voco-bin/menu
+echo ""
+
+cd add
+lab51cc main_add.cc
+sudo mv main_add_* /usr/bin/voco-bin/add
+echo ""
+cd ..
+
+cd del
+lab51cc main_del.cc
+sudo mv main_del_* /usr/bin/voco-bin/del
+echo ""
+cd ..
+
+cd edit
+lab51cc main_edit.cc
+sudo mv main_edit_* /usr/bin/voco-bin/edit
+echo ""
+cd ..
+
+cd sniff
+lab51cc main_sniff.cc
+sudo mv main_sniff_* /usr/bin/voco-bin/sniff
+echo ""
+cd ..
+
+cd view
+lab51cc main_view.cc
+sudo mv main_view_* /usr/bin/voco-bin/view
+echo ""
+cd ../..
+
+mkdir ~/voco/ 2>/dev/null
+mkdir ~/voco/ACTIVE/ 2>/dev/null
+mkdir ~/voco/ARCHIVE/ 2>/dev/null
+
+printf "${BLUE}[OUT]${NC} ~/voco/""\n"
+printf "${BLUE}[OUT]${NC} /usr/bin/voco""\n"
+printf "${BLUE}[OUT]${NC} /usr/bin/voco-bin/""\n"
+printf "${BLUE}[OUT]${NC} /usr/bin/voco-lib/""\n"
+
+printf "\n""${BLUE}[OK]${NC} successfully installed.""\n"
+read -n1 -r -p "press ANY-KEY to EXIT..." key

@@ -1,0 +1,6 @@
+#!/bin/sh
+apt-get autoremove --purge xed*
+apt-get autoremove --purge xviewer*
+rm /var/lib/apt/lists/lock
+rm /var/cache/apt/archives/lock
+rm /var/lib/dpkg/lock

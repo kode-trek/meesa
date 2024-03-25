@@ -1,0 +1,15 @@
+Package: mkpdf
+Version: 1.0-1
+Section: base
+Priority: optional
+Architecture: amd64
+Depends: texlive-latex-base, texlive-lang-arabic, texlive-fonts-recommended,
+ texlive-xetex, lmodern, xzdec, evince, gedit, gedit-plugins, gedit-latex-plugin
+Maintainer: github.com/ID
+Description: produces PDF documents using the LaTeX/XeTeX compilers.
+ *builds a PDF from a LAtin <.tex> document.
+ *builds a PDF from a FArsi <.tex> document.
+ *sorts out the list of references using the BibTeX tool.
+ *installs a CTAN package.
+ *installs font(s).
+ *provides a collection of sample <.tex> documents.

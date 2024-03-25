@@ -1,0 +1,20 @@
+#! /bin/bash
+
+if [ "$1" = "--pdf" ]
+then
+	/usr/bin/mkPDF/pdfTeX $2
+elif [ "$1" = "--pkg" ]
+then
+	/usr/bin/mkPDF/pkgTeX $2
+elif [ "$1" = "--sample" ]
+then
+	if [ ! -d ~/Documents/sampleTeX ]
+	then
+		mkdir ~/Documents/sampleTeX
+		cp -rf /usr/lib/mkPDF/sample/asset/ ~/Documents/sampleTeX
+		cp /usr/lib/mkPDF/sample/src.bib ~/Documents/sampleTeX
+		cp /usr/lib/mkPDF/sample/sample.tex ~/Documents/sampleTeX
+	else
+		echo 'NOT SAFE: <~/Documents/sampleTeX> directory exists.'
+	fi
+fi

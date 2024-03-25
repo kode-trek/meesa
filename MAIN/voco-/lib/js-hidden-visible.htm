@@ -1,0 +1,57 @@
+<table>
+
+<tr>
+<td>Full Name</td>
+<td><input id='id1' required maxlength='32'></td>
+</tr>
+
+<tr>
+<td>Phone Number</td>
+<td><input id='id2' maxlength='16'></td>
+</tr>
+
+<tr>
+<td>Address</td>
+<td><textarea id='id3' maxlength='256' style="resize:none;"></textarea></td>
+</tr>
+
+<tr>
+<td></td>
+<td>
+<input type='button' value='Add' onclick='f1()'>
+<input type='button' value='Clear' onclick='f2();location.reload()'>
+</td>
+</tr>
+
+</table>
+
+<div id='disp'>
+<p><b>Full Name: </b><span id='fn'> </span></p>
+<p><b>Phone Number: </b><span id='pn'> </span></p>
+<p><b>Address: </b><span id='a'> </span></p>
+<input type='submit'>
+</div>
+
+<script>
+document.getElementById('disp').style.visibility = 'hidden'
+
+function f1() {
+	var v1 = document.getElementById('id1').value
+	var v2 = document.getElementById('id2').value
+	var v3 = document.getElementById('id3').value
+
+	document.getElementById('disp').style.visibility = 'visible'
+
+	document.getElementById('fn').innerHTML = v1
+	document.getElementById('pn').innerHTML = v2
+	document.getElementById('a').innerHTML = v3
+}
+
+function f2() {
+	document.getElementById('id1').value = ''
+	document.getElementById('id2').value = ''
+	document.getElementById('id3').value = ''
+
+	document.getElementById('disp').style.visibility = 'hidden'
+}
+</script>

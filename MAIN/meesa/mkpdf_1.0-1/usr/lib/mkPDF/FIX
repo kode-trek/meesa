@@ -1,0 +1,2 @@
+1. mkpdf --pkg []
+doesn't install CTAN packages properly.

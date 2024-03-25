@@ -1,0 +1,50 @@
+#! /bin/bash
+
+# The MIT License (MIT)
+# Copyright (c) 2024 Emeer Adhamian (github.com/kode-trek)
+# https://raw.githubusercontent.com/kode-trek/meesa/main/LICENSE
+
+# help
+if [[ "$1" == "--help" ]]
+then
+ /usr/bin/voco-bin/help
+ exit
+fi
+# command-list
+if [[ "$1" == "cmd" ]]
+then
+ /usr/bin/voco-bin/menu
+ exit
+fi
+# add
+if [[ "$1" == "add" ]]
+then
+ /usr/bin/voco-bin/add "$2" "$3" "$4" "$5"
+ exit
+fi
+# view
+if [[ "$1" == "view" ]]
+then
+ /usr/bin/voco-bin/view "$2"
+ exit
+fi
+# remove
+if [[ "$1" == "del" ]]
+then
+ /usr/bin/voco-bin/del "$2"
+ exit
+fi
+# edit
+if [[ "$1" == "edit" ]]
+then
+ /usr/bin/voco-bin/edit "$2"
+ exit
+fi
+# sniff
+if [[ "$1" == "sniff" ]]
+then
+ /usr/bin/voco-bin/sniff "$2"
+ exit
+fi
+# intro
+/usr/bin/voco-bin/intro

@@ -1,0 +1,269 @@
+<style>
+	script {display: inline;}
+</style>
+
+<div align='center'><h1>The mkPDF and a review on some writing tools</h1></div>
+
+<b>Abstract.</b> In this article, we compare HTML, LibreOffice Writer and LaTeX
+in order to find out which one could be the most promising tool in terms of
+user-friendly, typeset mathematics handling, package management and media
+support. On top of that, we introduce mkPDF, a tool for preparing LaTeX
+documents.
+<br>
+<h2>1. Introduction</h2>
+<b>LaTeX</b> is a high-quality typesetting system which includes features
+designed for the production of technical and scientific documentation [1].
+LaTeX, as a markup language, similar to HTML, uses commands (as tags in HTML) to
+enhance plain text types to more advanced level documents, usually in static PDF
+formats. Figure 1 illustrates an example of such conversion.
+<br><br>
+<div align='center'>
+<img src='1.png' />
+<img src='2.png' />
+<br>
+Figure 1: The writer uses plain text commands as opposed to the WYSIWYG word
+processors.
+</div>
+</br>
+In this study, we compare the following typesetting systems and softwares:
+<ul>
+	<li><b>HTML:</b> The <i>Hypertext Markup Language (HTML)</i> is the standard
+	markup language for documents designed to be displayed in a web browser.</li>
+	<li><b>LibreOffice Writer:</b> A free and open-source word processor component
+	of the LibreOffice software package, similar to Microsoft Word [2].</li>
+	<li><b>TeX/LaTeX:</b> A high-quality typesetting system; thst includes
+	features designed for the production of technical and scientific
+	documentation [3].</li>
+</ul>
+to find out which one could be the most promising tool in terms of:
+<ul>
+	<li><b>User Friendly:</b> Readily enough for a novice to get used to the
+	environment for producing their own documents.</li>
+	<li><b>Typeset Mathematics:</b> Convenient enough to produce beautifully
+	complex typeset mathematics expressions.</li>
+	<li><b>Customizable:</b> Coherent package system that makes it relatively easy
+	for users to write extension packages for providing additional features.</li>
+	<li><b>Portability and Media Support:</b> Enables users for converting
+	documents to other outputs (mostly static PDF), allowing them to share and
+	publish	them. Also supporting numerous different types of media within a
+	document.</li>
+</ul>
+In addition, we introduced a humble software named as mkPDF, which uses TeX-Live
+compiler to:
+<ul>
+	<li>Prepares documents using the TeX/LaTeX</li>
+	<li>Converts a <.tex> document to PDF</li>
+	<li>Formats lists of references using the BibTeX tool</li>
+	<li>Manually installs CTAN packages</li>
+	<li>Provides a sample <.tex> file that could be helpful for providing future
+	documents.
+</ul>
+The mkPDF is a <i>CLI (Command Line Interface)</i> tiny app that can be used by
+other programs as in-line commands.
+<br><br>
+<div align='center'>
+<img src='3.png' /><br>
+Figure 2: Enlisting the arguments and capabilities of mkPDF.
+</div>
+</br>
+In section 2, we have a comparison among them three tools in terms of the
+mentioned aspects. The scores would be <i>A</i>, <i>B</i> or <i>C</i> for
+<i>Good</i>, <i>OK</i> and <i>Poor</i> respectively. The outcome is integrated
+and diagrammed via a <i>bar chart</i>.
+<br>
+In section 3, we look at some features and capabilities of the mkPDF app.
+<br>
+<h2>2. Variables Evaluation</h2>
+For a quick comparison of them three tools, we gave them scores from A to C. The
+result has been integrated and diagrammed via a bar chart.
+<br>
+<div align='center'>
+<img src='fig3.jpg' /><br>
+Figure 3: a comparison on three tools, based on four variables.
+</div>
+</br>
+The rest of this section provides details for this research.
+<h3>2.1. User Friendly</h3>
+<b>HTML (Score: A)</b><br>
+One doesn't have to be a professional web-designer to publish a document in an
+HTML format. The HTML <i>&lt;tags&gt;</i> are used to reform a plain text.
+<br>
+<b>Example 1.</b> Using the <i>&lt;b&gt;</i> and <i>&lt;\b&gt;</i> tags to bold
+a phrase:
+<div align='center'>
+... blah blah blah ...
+<br>
+&#8595;
+<br>
+blah <span style='color:red'>&lt;b&gt;</span>blah<span style='color:red'>&lt;\b&gt;</span> blah
+</div>
+The output would be like this:
+<div align='center'>
+... blah blah blah ...
+<br>
+&#8595;
+<br>
+blah <b>blah</b> blah
+</div>
+Nevertheless there are plenty of softwares to Edit HTML documents, namely:
+<ui>
+	<li>Adobe Dreamweaver</li>
+	<li>Eclipse</li>
+	<li>Atom</li>
+	<li>...</li>
+</ui>
+
+Those kind of IDEs, make tasks as WYSIWYG ( What You See Is What You Get) thanks
+to them Shortcut Keys and Macros.
+<br>
+<b>LibreOffice Writer (Score: A)</b><br>
+The LibreOffice Writer is another example for a WYSIWYG word processor.
+<br>
+<b>Example 2.</b> With LibreOffice Writer we could bold a phrase by highlighting
+that phrase and pressing &lt;Ctrl+B&gt;:
+<div align='center'>
+... blah <span style='background-color:lightblue'>blah</span> blah ...
+<br>
+&#8595;
+<br>
+<img src='img_bold.png' />
+<br>
+&#8595;
+<br>
+... blah <b>blah</b> blah ...
+</div>
+<br>
+<b>LaTeX (Score: A)</b><br>
+On the other hand, when writing with LaTeX, the writer uses plain text as
+opposed to the formatted text found in WYSIWYG word processors. The writer uses
+commands, as tags in HTML, to reformat the raw text.
+<br>
+<b>Example:</b> We may use <i>\textbf{...}</i> command to make a phrase in bold
+typeface:
+<div align='center'>
+... blah blah blah ...
+<br>
+&#8595;
+<br>
+... blah <span style='color:blue'>\textbf</span>{blah} blah ...
+</div>
+The output would be like:
+<div align='center'>
+... blah <b>blah</b> blah ...
+</div>
+
+Despite an initially steep learning curve, a novice can very quickly get to the
+point where they are comfortable producing their own documents and can look up
+answers to many of their questions online.
+<br>
+Most LaTeX programs for editing <i>&lt;.tex&gt;</i> document files have a very
+user-friendly interface:
+<ui>
+	<li><b>Overleaf:</b> An online LaTeX editor</li>
+	<li><b>TeXstudio:</b> An integrated writing environment for creating LaTeX
+	documents.</li>
+	<li>...</li>
+</ui>
+
+<h3>2.2. Typeset Mathematics Handling</h3>
+<b>LibreOffice Writer (Score: A)</b><br>
+LibreOffice Writer has a feature to quickly	generate math expression.
+<br>
+<b>Example:</b> All we have to do is highlighting the expression, and clicking
+on the <img src='' /> icon button:
+<div align='center'><img src='' /></div>
+LibreOffice Writer tries to recognize and interprete commands inside that
+expression and if possible convert that syntax to a good-looking math symbols:
+<div align='center'><img src='' /></div>
+The output woud be like this:
+<div align='center'><img src='' /></div>
+<b>HTML (Score: B)</b><br>
+HTML doesn't seem to be designed specefically for diplaying math expressions.
+Anyway we could insert math symbols among the text using their equavelant hex
+codes.
+<br>
+<b>Example:</b>Pigeonhole principle. Here there are n = 10 pigeons in m = 9
+holes. Since 10 is greater than 9, the pigeonhole principle says that at least
+one hole has more than one pigeon:
+<div align='center'>&#x2308;n/m&#x2309;</div>
+The hex codes to indicate such ceiling functions &#x2308;&#x2309; are as
+follows:
+<div align='center'>
+<span style='color:red'><script>&#x2308;</script></span>
+n/m
+<span style='color:red'><script>&#x2309;</script></span>
+</div>
+Also we may get the same result using <i>named</i> HTML Entity:
+<div align='center'>
+<span style='color:red'><script>&lceil;</script></span>
+n/m
+<span style='color:red'><script>&rceil;</script></span>
+</div>
+<b>LaTeX (Score: A)</b><br>
+After all, LaTeX is designed by mathematicians for producing beautifully typeset
+mathematics. LaTeX is famouse for rendering equations and mathematical symbols.
+<br>
+<b>Example:</b> Pigeonhole Principle. Here there are n = 10 pigeons in m = 9
+holes. Since 10 is greater than 9, the pigeonhole principle says that at least
+one hole has more than one pigeon:
+<div align='center'>&#x2308;n/m&#x2309;</div>
+The commands to indicate such ceiling functions &#x2308;&#x2309; are as follows:
+<div align='center'>
+<span style='color:red'><script>$\lceil n/m \rceil$</script></span>
+</div>
+
+<h3>2.3. Customizable</h3>
+<b>LibreOffice (Score: B)</b><br>
+LibreOffice Extensions are tools that can be added or removed independently from
+your installation of the main program. They are availabe at:
+https://extensions.libreoffice.org/
+They are feasible to download and install, while most of them seems to be fancy
+and not necessary.
+<b>HTML (Score: A)</b><br>
+With the combiniation of (HTML, CSS, JS), one could build powerful open-source
+extensions for a web browser to boost up its ability and performance. For
+example to elicit information or ban annoying adverrtisments. 
+<br>
+For the Mozilla Firefox browser a variety of themes and extensions could be
+found at: https://support.mozilla.org/en-US/kb/find-and-install-add-ons-add-features-to-firefox
+<b>LaTeX (Score: C)</b><br>
+While there are billions packages are available to reform raw text into a
+beatiful document, there is one major problem known as <i>Dependency Hell</i>.
+It describes as :<br>
+<i>"Dependency hell is a colloquial term for the frustration of some software
+users who have installed software packages which have dependencies on specific
+versions of other software packages."</i>
+<b>Example:</b> Installing the <i>ze-persian</i> in LaTeX deponds on the
+following chained packages:
+<br>
+> > >  > ...
+</br>
+On the contrary, the MiKTeX can be configured in such a way that missing
+packages are automatically installed.
+<br>
+https://docs.miktex.org/manual/texfeatures.html
+
+<h3>2.4. Portability and Media Support</h3>
+<b>HTML (Score: A)</b><br>
+The combinition of (HTML, CSS, JS) does one exceptional job at producing
+interactive webpages where there is no limit in displaying any formats of media.
+
+It's so easy to export the outcome document in a variaty of formats, such as PDF, HTML, ...
+	also LibreOffice Writer support embedding variaety of media formats within a documnet, including: images and
+	even videos. However inserting GIF (animated pictures) might be challenging. score:B
+
+<h2>4. Conclusion</h2>
+From this study, we established that while LaTeX is the best choice for
+preparing static documents (especially if they contain mathematics symbols), the
+HTML combining with CSS and JS are well suited for making interactive pages.
+<br>
+In addition we evaluated a CMD app, named as mkPDF, in order to build static
+papers in PDF format out of &lt;.tex&gt; documents.
+
+<h2>5. References</h2>
+<pre>
+[1] https://www.latex-project.org
+[2] https://en.wikipedia.org/wiki/LibreOffice_Writer
+[3] https://en.wikipedia.org/wiki/LaTeX
+http://www.fileformat.info/info/unicode/char/2309/index.htm
+http://www.fileformat.info/info/unicode/char/2308/index.htm
